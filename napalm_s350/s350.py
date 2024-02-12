@@ -389,8 +389,9 @@ class S350Driver(NetworkDriver):
                 line,
                 re.X,
             )
-            module = match.groupdict()
-            modules[module["name"]] = module
+            if match:
+                module = match.groupdict()
+                modules[module["name"]] = module
 
         if modules:
             return modules
